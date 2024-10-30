@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết hợp JavaScript với CSS</title>
+    <style>
+        #NoiDung {
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+            height: 100px;
+        }
+        .TieuDe {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>JAVASCRIPT và CSS</h2>
+
+    <!-- Nút thay đổi màu sắc -->
+    <button onclick="document.getElementById('NoiDung').style.backgroundColor='blue'">Xanh</button>
+    <button onclick="document.getElementById('NoiDung').style.backgroundColor='red'">Đỏ</button>
+    <button onclick="document.getElementById('NoiDung').style.backgroundColor='yellow'">Vàng</button>
+    <button onclick="document.getElementById('NoiDung').style.backgroundColor=''">Không màu</button>
+
+    <br><br>
+
+    <!-- Chọn cỡ chữ và đặt -->
+    <select id="cboCoChu">
+        <option value="12px">12px</option>
+        <option value="16px">16px</option>
+        <option value="20px">20px</option>
+        <option value="24px">24px</option>
+    </select>
+    <button onclick="CoChu()">Đặt cỡ chữ</button>
+
+    <br><br>
+
+    <!-- Chọn chiều cao và đặt -->
+    <select id="cboDoCao">
+        <option value="100px">100px</option>
+        <option value="150px">150px</option>
+        <option value="200px">200px</option>
+    </select>
+    <button onclick="DoCao()">Đặt chiều cao</button>
+    <button onclick="TangDoCao()">Tăng chiều cao</button>
+
+    <br><br>
+
+    <!-- Nút nạp tiêu đề -->
+    <button onclick="NapTieuDe()">Nạp css tiêu đề</button>
+    <button onclick="document.getElementById('NoiDung').className=''">Nạp css nội dung</button>
+
+    <br><br>
+
+    <!-- Phần nội dung sẽ thay đổi -->
+    <div id="NoiDung">#NoiDung: Xin chào các bạn!</div>
+
+    <script>
+        function CoChu() {
+            var cboCoChu = document.getElementById("cboCoChu");
+            var NoiDung = document.getElementById("NoiDung");
+            NoiDung.style.fontSize = cboCoChu.value;
+        }
+
+        function DoCao() {
+            var cboDoCao = document.getElementById("cboDoCao");
+            var NoiDung = document.getElementById("NoiDung");
+            NoiDung.style.height = cboDoCao.value;
+        }
+
+        function TangDoCao() {
+            var NoiDung = document.getElementById("NoiDung");
+            var Cao = NoiDung.style.height;
+            Cao = Cao.substring(0, Cao.length - 2);
+            Cao = parseInt(Cao) + 50;
+            NoiDung.style.height = Cao + "px";
+        }
+
+        function NapTieuDe() {
+            var NoiDung = document.getElementById("NoiDung");
+            NoiDung.className = "TieuDe";
+        }
+    </script>
+
+</body>
+</html>
