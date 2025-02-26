@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlit Homestay</title>
+    <link rel="icon" href="https://nizlinh18.github.io/thuctap/41.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Media query cho màn hình nhỏ hơn 600px */
+@media only screen and (max-width: 600px) {
+    body {
+        font-size: 16px; /* Điều chỉnh font size nhỏ hơn trên màn hình nhỏ */
+    }
+}
+
+        .header {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0 20px 0;
+            background: white;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        .logo img {
+            height: 100px;
+            margin-right: 10px;
+        }
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .logo h1, .logo h2 {
+            margin: 0;
+            text-align: center;
+        }
+        .logo h1 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+        .logo h2 {
+            font-size: 24px;
+            color: #555;
+        }
+        .nav-icons-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+        .nav-menu {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .nav-menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+        .nav-menu a:hover{
+            color:rgb(172, 132, 31);
+        }
+        .icons {
+            margin-top: 15px;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+        .icons img {
+            width: 30px;
+            height: 30px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+        .search-bar {
+            display: none;
+            text-align: center;
+            margin-top: 10px;
+            width: 50% ;
+            margin-left: auto; /* Canh giữa */
+            margin-right: auto; /* Canh giữa */
+        }
+        .search-bar input {
+            width: 55%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .banner {
+            position: relative;
+            height: 500px;
+            width: 100%;
+            background-image: url("./banner.jpg");
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .banner-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(52, 52, 52, 0.68);
+            opacity: 0.8;
+        }
+        .banner-text {
+            position: absolute;
+            width: 835px;
+            height: 204px;
+            left: calc(50% - 835px / 2 + 0.5px);
+            top: calc(50% - 204px / 2);
+            font-family: 'Open Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 150px;
+            line-height: 204px;
+            text-align: center;
+            color: #FFFFFF;
+            z-index: 1;
+        }
+        .content {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #FAF3EA;
+            padding: 20px;
+            text-align: left;
+        }
+        ul {
+            text-align: left;
+            margin: 0 auto;
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        .footer {
+            background: white;
+            padding: 20px 0;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .footer .footer-content {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            max-width: 1200px;
+            margin: auto;
+            gap: 10px;
+        }
+        .footer .footer-section {
+            flex: 1;
+            padding: 10px 10px 0;
+        }
+        .footer .footer-section h3 {
+            margin-bottom: 5px;
+        }
+        .footer .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer .footer-section ul li {
+            margin: 3px 0;
+        }
+        .footer .subscribe input {
+            padding: 5px;
+            width: 70%;
+            border: 1px solid #ccc;
+        }
+        .footer .subscribe button {
+            padding: 5px 10px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .footer p {
+            text-align: left;
+            margin-top: 20px;
+        }
+        #menu-icon{
+        font-size: 2rem;
+        display: none;
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        margin-left: 15px;
+        } 
+        .dropdown-content {
+        display: none;
+        position: absolute;
+        background: transparent; /* Loại bỏ nền */
+        padding: 0;
+        }
+        .dropdown-content a {
+        color: black;
+        text-decoration: none;
+        display: block;
+        padding: 5px 10px; /* Giữ khoảng cách giữa chữ */
+        background: transparent;
+    }
+
+    .dropdown-content a:hover {
+        background: transparent; /* Loại bỏ nền xám khi hover */
+    text-decoration: underline; /* Gạch chân khi hover */
+    color: #c6a900;
+    }
+    .dropdown-content.show {
+      display: block;
+    }
+    .quest img {
+width: 40px;
+height: auto;
+
+}
+
+.belowbar {
+background-color: rgb(172, 132, 31);
+padding: 0px 17.4vw;
+z-index: 1;
+
+
+}
+.small-below {
+display: none;
+}
+.sticky {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 100;
+animation: slideDown 0.3s ease;
+}
+.sticky2 {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 100;
+animation: slideDown 0.3s ease;
+}
+.below-content {
+background-color: rgb(172, 132, 31);
+display: none;
+position: absolute;
+background: transparent; /* Loại bỏ nền */
+padding: 0
+}
+.below-content > li {
+position: relative;
+
+}
+.below-content > li > a{
+    display: block;
+color: #ffffff;
+padding-top: 11.5px;
+padding-bottom: 11.5px;
+padding-left: 35px;
+padding-right: 35px;
+background-color: rgb(172, 132, 31);
+text-decoration: none;
+font-size: 15px;
+font-weight: 500;
+white-space: nowrap;
+
+}
+.below-content > li > a:hover{
+background-color: rgb(172, 132, 31);
+}
+#drop {
+    font-size: 9px;
+margin-bottom: 2px;
+margin-left: 5px;
+}
+.below-content a.active {
+background-color:rgb(172, 132, 31);
+
+}
+.belowbar-dropdown {
+display: none;
+position: absolute;
+background-color: #ffffff;
+min-width: 200px;
+white-space: nowrap ;
+z-index: 1;
+border-top: 2px solid rgb(172, 132, 31);
+margin: 0 0;
+padding:0;
+
+}
+.belowbar-dropdown li {
+display: block;
+}     
+.belowbar-dropdown li a {
+color: #000000;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+white-space: nowrap;
+
+
+}
+.belowbar-dropdown li a:hover {
+color: rgb(212, 186, 55);
+background-color: #e6e4e4;
+min-width: 200px;
+
+}
+.dropdown:hover .belowbar-dropdown {
+display: block;
+
+} 
+
+        .anhchude img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    .header {
+    padding-top: 50px; 
+    position: relative;
+    z-index: 10; 
+}
+img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+</style>    
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="https://nganngan0210.github.io/kngannn/logo.jpg" alt="Starlit Homestay">
+            <div class="logo-text">
+                <h1>STARTLIT</3h1>
+                <h2>- HOMESTAY -</h2>
+            </div>
+        </div>
+        <div class="nav-icons-container">
+            <i class="fa-solid fa-bars" id="menu-icon"></i>
+            <div class="nav-menu">
+                <a href="#" class="nav-item">TRANG CHỦ</a>
+        <div class="dropdown">
+            <a href="#" class="nav-item" onclick="toggleDropdown(event)">KHÁM PHÁ</a>
+            <ul class="belowbar-dropdown" id="dropdown-menu">
+                <li><a href="#">Danh sách căn</a></li>
+                <li><a href="#">Danh sách căn trống</a></li>
+                <li><a href="#">Danh sách khách hàng</a></li>
+            </ul>
+        </div>
+        <a href="#" class="nav-item">GIỚI THIỆU</a>
+        <a href="#" class="nav-item">LIÊN HỆ</a>
+        <a href="#" class="nav-icon"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="nav-icon"><i class="fa-regular fa-circle-user"></i></a>
+    </div>
+</div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Nhập từ khóa...">
+            <button id="search-btn">Tìm kiếm</button>
+        </div>
+    </div>
+    <div class="banner">
+        <div class="anhchude"></div>
+        <img src="https://nganngan0210.github.io/kngannn/anhchude.png" alt="Hình ảnh chính">
+
+    </div>
+  
+    <style>
+.filter-box {
+    position: absolute;
+    bottom: -85px;
+    left: 54%;
+    transform: translateX(-50%);
+    background: #FAEBD7;
+    padding: 25px 80px; /* Tăng padding ngang để kéo dài */
+    width: 75%; /* Điều chỉnh độ rộng để kéo dài khung */
+    max-width: 1100px; /* Giới hạn tối đa để tránh quá dài */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.filter-box select#month {
+    font-size: 17px; /* Tăng kích thước chữ */
+    padding: 12px 20px; /* Tăng kích thước vùng chọn */
+    width: 250px; /* Điều chỉnh độ rộng */
+    font-weight: normal;
+    text-align: center;
+}
+.filter-box select#day {
+    font-size: 17px; /* Tăng kích thước chữ */
+    padding: 12px 20px; /* Tăng kích thước vùng chọn */
+    width: 250px; /* Điều chỉnh độ rộng */
+    font-weight: normal;
+    text-align: center;
+}
+.filter-box select#year {
+    font-size: 17px; /* Tăng kích thước chữ */
+    padding: 12px 20px; /* Tăng kích thước vùng chọn */
+    width: 250px; /* Điều chỉnh độ rộng */
+    font-weight: normal;
+    text-align: center;
+}
+        .filter-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+    font-size: 20px;
+    font-weight: bold;
+    position: absolute;
+    top: 1px; /* Đưa lên trên */
+    left: 15px; /* Căn sát mép trái */
+    background: #FAEBD7; /* Màu nền giống với thanh bộ lọc */
+    padding: 5px 10px; /* Tạo khoảng cách với nội dung */
+    border-radius: 5px; /* Bo góc nhẹ cho đẹp */
+}
+
+
+
+    
+        .filter-box select,
+        .filter-box input {
+            font-size: 16px;
+            padding: 8px;
+        display: flex;        border-radius: 6px;
+            border: 1px solid #ccc;
+            text-align: center;
+            width: 130px;
+        }
+        .filter-box select,
+        .filter-box button {
+    font-size: 17px;
+    padding: 12px 20px; /* Điều chỉnh padding để bằng với select */
+    border-radius: 1px;
+    width: 200px; /* Điều chỉnh độ rộng */
+    font-weight: bold;
+    background: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 46px; /* Cố định chiều cao bằng với các select */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    
+#apply-filter {
+    font-size: 17px;
+    padding: 12px 20px; /* Tăng padding để đồng bộ với các select */
+    border-radius: 24px;
+    font-weight: bold;
+    background: transparent;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.3s;
+    height: 50px; /* Đồng bộ chiều cao với select */
+    width: 130px; /* Đảm bảo chiều rộng tối thiểu không nhỏ hơn các ô chọn */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+.filter-bar {
+    width: 100%; /* Hoặc đặt bằng với container của danh sách */
+    max-width: 1200px; /* Giống với phần danh sách homestay */
+    margin: 0 auto; /* Căn giữa */
+}
+
+#apply-filter:hover {
+    background: black;
+    color: white;
+}
+.homestay-container {
+    width: 100%;
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px; 
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+    margin-top: 250px;
+}
+.listing-container {
+    display: flex;
+    align-items: center; /* Giữ hai phần cùng hàng */
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px; /* Đảm bảo tổng kích thước không quá lớn */
+    margin: 0 auto;
+}
+.text-container {
+    flex: 1; /* Chiếm phần bằng với ảnh */
+    max-width: 50%; /* Hoặc đặt cụ thể theo pixel */
+}
+
+/* Card homestay */
+.homestay-card {
+    display: flex;
+    width: 105%;
+    max-width: 1300px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    border: normal;
+    justify-content: space-between;
+    margin: 0 auto;
+    
+}
+
+/* So le vị trí ảnh */
+.homestay-card.left img {
+    order: 1; /* Ảnh bên trái */
+}
+
+.homestay-card.right img {
+    order: -1; /* Ảnh bên phải */
+}
+.homestay-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+    gap: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none; /* Xóa viền */
+    box-shadow: none; /* Xóa hiệu ứng đổ bóng nếu có */
+    background: transparent; /* Nếu có màu nền, đặt về trong suốt */
+}
+
+/* Ảnh homestay */
+.homestay-card img {
+    width: 48%;
+    height: 300px;
+    max-height:400px;
+    object-fit: cover;
+    border-radius: 0 !important;
+}
+
+/* Nội dung homestay */
+.homestay-info {
+    width: 48%;
+    padding: 0 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+.homestay-card h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.homestay-card p {
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 15px;
+}
+.homestay-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px; /* Điều chỉnh khoảng cách giữa chữ và ảnh */
+    padding: 20px 0;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+@media (max-width: 768px) {
+    .homestay-item {
+        flex-direction: column; /* Chữ xuống dưới ảnh */
+        gap: 20px; /* Giảm khoảng cách trên màn hình nhỏ */
+    }
+    .homestay-image, .homestay-text {
+        max-width: 100%;
+        text-align: center; /* Căn giữa nội dung */
+    }
+}
+
+.homestay-text {
+    flex: 1;
+    max-width: 48%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Căn giữa nội dung với ảnh */
+    text-align: left; /* Căn chữ sát lề trái */
+}
+
+.homestay-text h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.homestay-text p {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6; /* Tăng khoảng cách dòng để dễ đọc hơn */
+}
+
+.homestay-image {
+    flex: 1;
+    text-align: center; /* Căn ảnh về phía bên phải */
+    max-width: 48%;
+    width: 20%;
+}
+.homestay-image img {
+    width: 100%;
+    height: 300px; /* Đảm bảo tất cả ảnh có cùng chiều cao */
+    object-fit: cover;
+    border-radius: 10px;
+}
+.homestay-item:nth-child(even) {
+    flex-direction: row-reverse; /* Đổi vị trí ảnh và chữ cho item chẵn */
+}
+.homestay-item:nth-child(odd) .homestay-text {
+    padding-left: 0; /* Sát mép trái */
+    padding-right: 40px;
+}
+
+.homestay-item:nth-child(even) .homestay-text {
+    padding-right: 0; /* Sát mép phải */
+    padding-left: 40px;
+}
+
+.price {
+    font-size: 32px; /* Kích thước chữ lớn hơn nhưng không quá to */
+    font-weight: bold;
+    color: #e67e22;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Tạo khoảng cách giữa giá và nút xem lịch */
+}
+
+.price span {
+    font-size: 3rem; /* Điều chỉnh kích thước chữ trong giá căn */
+}
+.homestay-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Căn về bên trái */
+    gap: 1px; /* Khoảng cách giữa giá và nút */
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Nút xem lịch */
+.homestay-button {
+    display: inline-block;
+    background: #f8dfb8;
+    border: none;
+    padding: 8px 15px; /* Giảm kích thước */
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 18px; /* Chữ nhỏ hơn */
+    white-space: nowrap; /* Giữ chữ không bị xuống dòng */
+    margin-left: auto; /* Đẩy nút sát giá căn bên phải */
+    transform: translateY(-45px);
+    text-align: center;
+    
+}
+
+.homestay-button:hover {
+    background: #e0c495;
+}
+.banner-text {
+    font-size: 180px; /* Tăng từ 150px lên 180px */
+}
+
+    </style>
+    
+    <div class="filter-box">
+        <span class="filter-label">Bộ lọc</span>
+        <div class="filter-content">
+            <select id="month">
+                <option>Tháng 1</option>
+                <option>Tháng 2</option>
+                <option>Tháng 3</option>
+                <option>Tháng 4</option>
+                <option>Tháng 5</option>
+                <option>Tháng 6</option>
+                <option>Tháng 7</option>
+                <option>Tháng 8</option>
+                <option>Tháng 9</option>
+                <option>Tháng 10</option>
+                <option>Tháng 11</option>
+                <option>Tháng 12</option>
+            </select>
+    
+            <select id="day">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+            </select>
+    
+            <select id="year">
+                <option>2024</option>
+                <option>2025</option>
+                <option>2026</option>
+            </select>
+    
+            <button id="apply-filter">Áp dụng</button>
+        </div>
+    </div>
+    <div class="homestay-container">
+        <div class="homestay-card left">
+            <img src="https://nganngan0210.github.io/kngannn/anhh1.jpg" alt="Ngôi làng cổ tích">
+            <div class="homestay-info">
+                <h2>NGÔI LÀNG CỔ TÍCH</h2>
+                <p>NGÔI LÀNG CỔ TÍCH BÌNH YÊN, THƠ MỘNG</P>
+                <p>Với view hồ Cầu Đá và đồng ruộng chín vàng cùng với bể ngâm ngoài trời 6m2 ngắm hồ và núi rừng, căn sẽ có 1 phòng khách , 1 phòng ngủ khép kín- giường 2mx2m2, phòng vệ sinh khép kín view hồ xanh và khu bếp đầy đủ tiện nghi.</p>
+                <p class="price">Giá căn: 1,300,000đ/đêm</p>
+                <button class="homestay-button">Xem lịch</button>
+            </div>
+        </div>
+    
+        <div class="homestay-card right">
+            <div class="homestay-info">
+                <h2>EUDORA VILLA</h2>
+                <p>CHIẾC HOMESTAYS ĐỊA TRUNG HẢI </p>
+                <p>Villa 5 phòng ngủ với diện tích 800m2, phù hợp nhóm gia đình, bạn bè, từ 12-20 người. Gồm 5 phòng ngủ khép kín đầy đủ điều hoà nóng lạnh, phòng khách rộng rãi thoáng mát, có bàn bi-a , bể bơi ngoài trời, khu vực bếp, nướng BBQ,...</p>
+                <p class="price">Giá căn: 5,550,000đ/đêm</p>
+                <button class="homestay-button">Xem lịch</button>
+            </div>
+            <img src="https://nganngan0210.github.io/kngannn/anh2.jpg" alt="Eudora Villa">
+        </div>
+    
+        <div class="homestay-card left">
+            <img src="https://nganngan0210.github.io/kngannn/anh3.jpg" alt="Stellar House">
+            <div class="homestay-info">
+                <h2>STELLAR HOUSE</h2>
+                <p>NGÔI NHÀ ĐỊA TRUNG HẢI</p>
+                <p>Nằm trong tổ hợp khuôn viên 7000m2. Trong đó 700 m2 riêng biệt bao gồm  4 phòng ngủ, 01 phòng khách, 01 phòng bếp, 02 phòng vệ sinh cùng nhiều nội thất tiện nghi. Tiêu chuẩn 15 người lớn, tối đa 22 người kể cả trẻ em.</p>
+                <p class="price">Giá căn: 5,400,000đ/đêm</p>
+                <button class="homestay-button">Xem lịch</button>
+            </div>
+        </div>
+    
+        <div class="homestay-card right">
+            <div class="homestay-info">
+                <h2>JOY HOUSE</h2>
+                <p>GÓC VƯỜN NHỎ AN YÊN</p>
+                <p>Căn gồm có hồ bơi rộng 9x3m2, bàn bi-a và bàn ăn ngoài trời , phòng khách , không gian ăn uống và bếp ấm cúng , 02 phòng ngủ khép kín với giường lớn 2mx2m2, 02 phòng vệ sinh hiện đại, khu bếp trong nhà và ngoài trời đầy đủ tiện nghi.</p>
+                <p class="price">Giá căn: 3,900,000đ/đêm</p>
+                <button class="homestay-button">Xem lịch</button>
+            </div>
+            <img src="https://nganngan0210.github.io/kngannn/anh4.jpg" alt="Joy House">
+        </div>
+
+        <div class="homestay-card left">
+            <img src="https://nganngan0210.github.io/kngannn/anh5.jpg" alt="Aramani Villa">
+            <div class="homestay-info">
+                <h2>ARMANI VILLA</h2>
+                <p>CĂN VILLA SIÊU HOT 8 PHÒNG NGỦ</p>
+                <p>Một trong những căn villa tiện nghi và đẳng cấp 5, bể bơi siêu phẩm nằm trong Sân Golf Tam Đảo, nơi có hồ, cây cỏ núi rừng, villa có 4 tầng cực chill, view đẹp lung linh, nơi để bạn và người thân bạn bè tận hưởng giây phút thư giãn và nghỉ dưỡng tuyệt vời, có thể đón đoàn 50 người.</p>
+                <p class="price">Giá căn:7,800,000đ/đêm</p>
+                <button class="homestay-button">Xem lịch</button>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-content" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+                <div class="footer-section">
+                    <h3>STARTLIT</h3>
+                    <p>Văn phòng: 98 Dương Quảng Hàm, Cầu Giấy, Hà Nội</p>
+                    <p>Điện thoại: 0567894444</p>
+                    <p>Email: starlit198@gmail.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Liên kết</h3>
+                    <ul style="font-size: 14px;">
+                        <li><a href="#">Trang Chủ</a></li>
+                        <li><a href="#">Khám Phá</a></li>
+                        <li><a href="#">Giới Thiệu</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Hỗ trợ</h3>
+                    <ul style="font-size: 14px;">
+                        <li><a href="#">Thanh Toán</a></li>
+                        <li><a href="#">Quay Lại</a></li>
+                        <li><a href="#">Chính Sách Bảo Hành</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Đề Xuất</h3>
+                    <input type="text" placeholder="Nhập gợi ý của bạn">
+                    <button>Đăng Ký</button>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px;">&copy; 2025 Starlit Homestay. All rights reserved.</p>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const menuIcon = document.getElementById("menu-icon");
+                const navMenu = document.querySelector(".nav-menu");
+        
+                menuIcon.addEventListener("click", function () {
+                    navMenu.classList.toggle("active");
+                });
+            });
+        </script>
+        </body>
+        </html>
+    
