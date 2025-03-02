@@ -1,0 +1,311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .lodging-options {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 1200px;
+        padding: 0 20px;
+    }
+    
+    .lodging-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .lodging {
+        padding: 24px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        justify-content: center;
+        gap: 24px;
+    }
+    
+    .gia {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    
+    .image {
+        padding: 24px;
+        width: 50%;
+    }
+    
+    .image img {
+        display: block;
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+    }
+    
+    .lodging-container:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+    
+    button {
+        display: inline-block;
+        /* margin-left: 440px; */
+        padding: 10px 20px;
+        background-color: #f4e1d2;
+        border: none;
+        cursor: pointer;
+        vertical-align: middle;
+        margin-left: 10px;
+    }
+    
+    .lodging h2 {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 24px;
+    }
+    
+    .lodging p {
+        font-size: 20px;
+    }
+    
+    .price {
+        font-weight: bold;
+        font-style: italic;
+        font-size: 20px;
+    }
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+            .lodging {
+                width: 100%;
+            }
+            .image {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .lodging-container {
+                flex-direction: column;
+            }
+            .lodging, .image {
+                width: 100%;
+                padding: 16px;
+            }
+            .lodging h2 {
+                font-size: 20px;
+            }
+            .lodging p, .price {
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .lodging h2 {
+                font-size: 18px;
+            }
+            .lodging p, .price {
+                font-size: 16px;
+            }
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <link rel="stylesheet" href="/style.css">
+<body>
+    <div class="lodging-options">
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>ĐỒNG ĐÒNG LODGE</h2>
+                <p>LÃNG MẠN & BÌNH YÊN</p>
+                <p>Với view hồ Cầu Đá và đồng ruộng chín vàng cùng với bể ngâm ngoài trời 6m2 ngắm hồ và núi rừng, căn
+                    sẽ có
+                    1 phòng khách , 1 phòng ngủ khép kín- giường 2mx2m2, phòng vệ sinh khép kín view hồ xanh và khu bếp
+                    đầy
+                    đủ tiện nghi.</p>
+                <div class="gia">
+                    <p class="price">Giá căn: 950,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh9.jpg" alt="Image 1">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>NHÀ RƠM</h2>
+                <p>ĐẸP TRONG THIẾT MÙA THU</p>
+                <p>Căn có diện tích 20m2 với 1 giường đôi, 1 sofa bé, 1 nhà vệ sinh. Đặc biệt, có bể ngâm nhỏ ngoài trời
+                    3,8m2 và bàn trà ngoài sân. Ngoài ra ,cách căn còn 700m quán Coffe rất chill </p>
+                <div class="gia">
+                    <p class="price">Giá căn: 1,000,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh10.jpg" alt="Image 2">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>NGÔI LÀNG CỔ TÍCH</h2>
+                <p>NGÔI LÀNG CỔ TÍCH BÌNH YÊN, THƠ MỘNG</p>
+                <p>Với view hồ Cầu Đá và đồng ruộng chín vàng cùng với bể ngâm ngoài trời 6m2 ngắm hồ và núi rừng, căn
+                    sẽ có
+                    1 phòng khách, 1 phòng ngủ khép kín - giường 2mx2m2, phòng vệ sinh khép kín, view hồ xanh và khu bếp
+                    đầy
+                    đủ tiện nghi. .</p>
+                <div class="gia">
+                    <p class="price">Giá căn: 1,300,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anhh1.jpg" alt="Image 3">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>EUDORA VILLA</h2>
+                <p>CHIẾC HOMESTAY ĐỊA TRUNG HẢI</p>
+                <p>Villa 5 phòng ngủ với diện tích 800m2, phù hợp với nhóm gia đình ,bạn bè , từ 10-20 người. Bao gồm 5
+                    phòng ngủ khép kín, đầy đủ tiện nghi, khu vực ngoài trời rộng rãi thoáng mát. </p>
+                <div class="gia">
+                    <p class="price">Giá căn: 5,550,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh2.jpg" alt="Image 4">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>STELLAR HOUSE</h2>
+                <p>NGÔI NHÀ ĐỊA TRUNG HẢI</p>
+                <p>Nằm trong khuôn viên 7000m2. Trong đó 700m2 riêng biệt bao gồm 4 phòng ngủ, 1 phòng khách, 1 phòng
+                    bếp, 2
+                    phòng vệ sinh cùng nhiều nội thất tiện nghi. Tiêu chuẩn 15 người lớn, tối đá 22 người kể cả trẻ em .
+                </p>
+                <div class="gia">
+                    <p class="price">Giá căn: 5,400,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh3.jpg" alt="Image 5">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>JOY HOUSE</h2>
+                <p>GÓC VƯỜN NHỎ AN YÊN</p>
+                <p>Căn gồm có hồ bơi rộng 9x3m2, bàn bida và bàn ăn ngoài trời, phòng khách , không gian ăn uống và bếp
+                    ấm
+                    cúng, 2 phòng ngủ khép kín với giường lớn 2mx2m2, 2 phòng vệ sinh hiện đại, khu bếp trong nhà và
+                    ngoài
+                    trời đầy đủ tiện nghi.</p>
+                <div class="gia">
+                    <p class="price">Giá căn: 3,900,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh4.jpg" alt="Image 6">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>ARMANI VILLA</h2>
+                <p>CĂN VILLA SIÊU HOT 8 PHÒNG NGỦ</p>
+                <p>Một trong những căn villa tiện nghi và đẳng cấp 5, bể bơi siêu phẩm nằm trong Sân Golf Tam Đảo, nơi
+                    có
+                    hồ, cây cỏ núi rừng, villa có 4 tầng cực chill, view đẹp lung linh, nơi để bạn và người thân bạn bè
+                    tận
+                    hưởng giây phút thư giãn và nghỉ dưỡng tuyệt vời, có thể đón đoàn 50 người.</p>
+                <div class="gia">
+                    <p class="price">Giá căn : 7,800,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh5.jpg" alt="Image 7">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>ISLAND HOUSE IH2</h2>
+
+                <p>Villa tiêu chuẩn cho đoàn 12 người trở xuống, bao gồm 01 phòng ngủ Master, 01 phòng ngủ Family, 01
+                    phòng
+                    ngủ Community, 04 nhà vệ sinh/phòng tắm tách rời, phòng khách rộng rãi với bộ sofa thư giãn, bếp
+                    nướng
+                    và bàn ghế ăn ngoài trời cho những bữa tiệc BBQ.</p>
+                <div class="gia">
+                    <p class="price">Giá căn: 3,300,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh7.jpg" alt="Image 8">
+            </div>
+        </div>
+
+        <div class="lodging-container">
+            <div class="lodging">
+                <h2>THE JEFFERSON</h2>
+
+                <p>Villa bao gồm 6 phòng ngủ, 1 phòng khách rộng rãi, 1 phòng bếp, 1 sân vườn và 1 bể bơi ngoài trời,
+                    sân
+                    vườn BBQ rộng rãi với 2 bàn ăn lớn, khu vực chill ngoài trời với bàn trà đốt lửa trại, không gian
+                    bồn
+                    tắm ngoài, tắm tráng ngay tại sân vườn....</p>
+                <div class="gia">
+                    <p class="price">Giá căn: 7,800,000đ/ đêm</p>
+                    <button>Xem lịch</button>
+                </div>
+
+            </div>
+            <div class="image">
+                <img src="https://nganngan0210.github.io/kngannn/anh8.jpg" alt="Image 9">
+            </div>
+        </div>
+</body>
+
+</html>
