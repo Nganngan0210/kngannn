@@ -1,0 +1,122 @@
+/* ===============
+   Thiết kế responsive, màu ấm, dễ code
+   =============== */
+:root{
+  --bg:#fffaf5;
+  --paper:#ffffff;
+  --ink:#2b2b2b;
+  --muted:#6b6b6b;
+  --brand:#c24914;   /* cam đất */
+  --brand-2:#f29f67; /* cam nhạt */
+  --accent:#4f8a8b;  /* xanh ngọc nhẹ */
+  --radius:14px;
+  --shadow:0 6px 24px rgba(0,0,0,.08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+.container{width:min(1100px, 92%); margin-inline:auto}
+.section{padding:64px 0}
+.section.alt{background: #fff}
+.section-head h2{margin:0 0 8px}
+.section-head p{color:var(--muted); margin:0 0 24px}
+
+/* Header */
+.site-header{
+  position:sticky; top:0; z-index:10;
+  background:#fff; box-shadow:var(--shadow);
+}
+.header-inner{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+.brand{display:flex; align-items:center; gap:8px; text-decoration:none; color:var(--ink); font-weight:700}
+.brand-logo{font-size:28px}
+.brand-text{letter-spacing:.2px}
+
+.nav-toggle{display:none; background:none; border:1px solid #ddd; padding:6px 10px; border-radius:8px}
+.menu{display:flex; gap:16px; list-style:none; margin:0; padding:0}
+.menu a{color:var(--ink); text-decoration:none; padding:8px 10px; border-radius:8px}
+.menu a:hover{background:#f6efe9}
+
+/* Buttons */
+.btn{
+  display:inline-block; padding:12px 16px; border:none; border-radius:12px;
+  background:var(--brand); color:white; text-decoration:none; font-weight:600; cursor:pointer;
+  box-shadow:var(--shadow);
+}
+.btn:hover{filter:brightness(.95)}
+.btn-outline{
+  background:transparent; color:var(--brand); border:2px solid var(--brand);
+}
+
+/* Hero */
+.hero{background: linear-gradient(180deg, #fff2e8, #fff);}
+.hero-inner{display:grid; grid-template-columns: 1.35fr 1fr; gap:24px; align-items:center; padding:24px 0}
+.hero-copy h1{font-size:clamp(24px, 4vw, 40px); line-height:1.2; margin:0 0 12px}
+.highlight{color:var(--brand)}
+.hero-ctas{display:flex; gap:12px; margin:16px 0}
+.hotline{margin:8px 0 0; color:#8a4f2d}
+.hero-art img{width:100%; height:auto; display:block; border-radius:var(--radius); box-shadow:var(--shadow)}
+
+/* Grid & Cards */
+.grid{display:grid; gap:16px}
+.grid-3{grid-template-columns: repeat(3, 1fr)}
+.grid-2{grid-template-columns: repeat(2, 1fr)}
+
+.card, .post, .contact-card{
+  background:var(--paper); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow);
+}
+.card img{width:100%; border-radius:10px; background:#fff1e5; display:block}
+.card h3{margin:8px 0}
+.card-link{font-weight:600; color:var(--brand); text-decoration:none}
+.card-link:hover{text-decoration:underline}
+
+.post h3{margin:0 0 8px}
+.post-link{color:var(--brand); text-decoration:none; font-weight:600}
+
+/* Search */
+.search{display:flex; gap:8px; align-items:center}
+.search input{flex:1; padding:12px 14px; border:1px solid #ddd; border-radius:10px; outline:none}
+.search-results{margin-top:16px}
+
+/* Form */
+.report-form .form-group{margin-bottom:14px}
+.report-form input, .report-form select, .report-form textarea{
+  width:100%; padding:12px 14px; border:1px solid #ddd; border-radius:10px; outline:none;
+}
+.form-actions{display:flex; gap:12px; align-items:center}
+.form-note{color:var(--muted); margin:0}
+
+/* Footer */
+.site-footer{background:#1f1a17; color:#fff; padding:28px 0; margin-top:48px}
+.footer-inner{display:flex; justify-content:space-between; align-items:center}
+.footer-links{list-style:none; display:flex; gap:16px; margin:0; padding:0}
+.footer-links a{color:#fff; text-decoration:none}
+
+/* Dialog */
+dialog{border:none; border-radius:16px; padding:0; box-shadow:var(--shadow)}
+.login-form{padding:20px; width:min(420px, 90vw)}
+.login-form input{width:100%; padding:10px; margin:6px 0 12px; border:1px solid #ddd; border-radius:10px}
+.login-form menu{display:flex; gap:8px; justify-content:flex-end; margin:0}
+
+/* A11y */
+.skip-link{position:absolute; left:-999px; top:-999px}
+.skip-link:focus{left:12px; top:12px; background:#000; color:#fff; padding:8px 10px; border-radius:6px}
+.sr-only{position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0}
+
+/* Responsive */
+@media (max-width: 900px){
+  .grid-3{grid-template-columns: 1fr 1fr}
+  .hero-inner{grid-template-columns: 1fr}
+  .hero-art{order:-1}
+}
+@media (max-width: 640px){
+  .grid-3, .grid-2{grid-template-columns: 1fr}
+  .menu{display:none}
+  .nav-toggle{display:inline-block}
+}
